@@ -17,10 +17,11 @@ public class CollectionBox {
     @ManyToOne
     private FundraisingEvent assignedEvent;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "box_money")
     @MapKeyEnumerated(EnumType.STRING)
     private Map<CurrencyType, BigDecimal> money = new HashMap<>();
+
 
     public CollectionBox() {}
 
